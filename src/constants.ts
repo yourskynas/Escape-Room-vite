@@ -7,6 +7,14 @@ const AppRoute = {
   Contacts: '/contacts',
 } as const;
 
+const QuestLevel = {
+  any: 'Любой',
+  easy: 'Лёгкий',
+  middle: 'Средний',
+  hard: 'Сложный'
+} as const;
+
 export {
-  AppRoute
+  AppRoute,
+  QuestLevel
 };
