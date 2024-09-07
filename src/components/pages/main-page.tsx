@@ -3,7 +3,7 @@ import LevelList from '../level-list/level-list';
 import QuestList from '../quest/quest-list';
 
 const MainPage = (): JSX.Element => (
-  <div className="wrapper">
+  <>
     <main className="page-content">
       <div className="container">
         <div className="page-content__title-wrapper">
@@ -77,7 +77,7 @@ const MainPage = (): JSX.Element => (
       </div>
     </main>
     <Footer />
-  </div>
+  </>
 );
 
 export default MainPage;

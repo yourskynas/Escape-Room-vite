@@ -1,7 +1,7 @@
 import Footer from '../footer/footer';
 
 const ContactsPage = (): JSX.Element => (
-  <div className="wrapper">
+  <>
     <main className="page-content decorated-page">
       <div className="decorated-page__decor" aria-hidden="true">
         <picture>
@@ -49,7 +49,7 @@ const ContactsPage = (): JSX.Element => (
       </div>
     </main>
     <Footer />
-  </div>
+  </>
 );
 
 export default ContactsPage;

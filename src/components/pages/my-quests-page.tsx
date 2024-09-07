@@ -1,9 +1,7 @@
 import Footer from '../footer/footer';
-import Header from '../header/header';
 
 const MyQuestsPage = (): JSX.Element => (
-  <div className="wrapper">
-    <Header />
+  <>
     <main className="page-content decorated-page">
       <div className="decorated-page__decor" aria-hidden="true">
         <picture>
@@ -95,7 +93,7 @@ const MyQuestsPage = (): JSX.Element => (
       </div>
     </main>
     <Footer />
-  </div>
+  </>
 );
 
 export default MyQuestsPage;

@@ -7,6 +7,7 @@ import LoginPage from '../pages/login-page';
 import ContactsPage from '../pages/contacts-page';
 import { AppRoute } from '../../constants';
 import TemplatePage from '../pages/template-page';
+import PrivateRoute from '../private-route/private-route';
 
 const App = (): JSX.Element => (
   <BrowserRouter>
@@ -29,14 +30,22 @@ const App = (): JSX.Element => (
           path={AppRoute.Quest}
           element={<QuestPage />}
         />
+        <Route
+          path={AppRoute.MyQuests}
+          element={
+            <PrivateRoute>
+              <MyQuestsPage />
+            </PrivateRoute>
+          }
+        />
       </Route>
       <Route
-        path={AppRoute.MyQuests}
-        element={<MyQuestsPage />}
-      />
-      <Route
         path={AppRoute.Login}
-        element={<LoginPage />}
+        element={
+          <PrivateRoute forNonAuthOnly>
+            <LoginPage />
+          </PrivateRoute>
+        }
       />
     </Routes>
   </BrowserRouter>

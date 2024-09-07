@@ -37,7 +37,7 @@ const Header = ({authorizationStatus}: HeaderProps): JSX.Element => (
       </nav>
       <div className="header__side-nav">
         {authorizationStatus ? <ExitButton /> : <EntryButton />}
-        <a className="link header__side-item header__phone-link" href="tel:88003335599">8 (000) 111-11-11</a>
+        <Link className="link header__side-item header__phone-link" to="tel:88003335599">8 (000) 111-11-11</Link>
       </div>
     </div>
   </header>
