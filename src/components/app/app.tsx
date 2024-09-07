@@ -6,33 +6,46 @@ import QuestPage from '../pages/quest-page';
 import LoginPage from '../pages/login-page';
 import ContactsPage from '../pages/contacts-page';
 import { AppRoute } from '../../constants';
+import TemplatePage from '../pages/template-page';
+import PrivateRoute from '../private-route/private-route';
 
 const App = (): JSX.Element => (
   <BrowserRouter>
     <Routes>
-      <Route
-        path={AppRoute.Main}
-        element={<MainPage />}
-      />
-      <Route
-        path={AppRoute.Quest}
-        element={<QuestPage />}
-      />
-      <Route
-        path={AppRoute.Booking}
-        element={<BookingPage />}
-      />
-      <Route
-        path={AppRoute.MyQuests}
-        element={<MyQuestsPage />}
-      />
+      <Route element={<TemplatePage />}>
+        <Route
+          index
+          path={AppRoute.Main}
+          element={<MainPage />}
+        />
+        <Route
+          path={AppRoute.Contacts}
+          element={<ContactsPage />}
+        />
+        <Route
+          path={AppRoute.Booking}
+          element={<BookingPage />}
+        />
+        <Route
+          path={AppRoute.Quest}
+          element={<QuestPage />}
+        />
+        <Route
+          path={AppRoute.MyQuests}
+          element={
+            <PrivateRoute>
+              <MyQuestsPage />
+            </PrivateRoute>
+          }
+        />
+      </Route>
       <Route
         path={AppRoute.Login}
-        element={<LoginPage />}
-      />
-      <Route
-        path={AppRoute.Contacts}
-        element={<ContactsPage />}
+        element={
+          <PrivateRoute forNonAuthOnly>
+            <LoginPage />
+          </PrivateRoute>
+        }
       />
     </Routes>
   </BrowserRouter>
