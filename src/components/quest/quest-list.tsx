@@ -1,8 +1,14 @@
+import { nanoid } from '@reduxjs/toolkit';
 import QuestCard from '.';
+import { QuestType } from '../../types';
 
-const QuestList = (): JSX.Element => (
+type QuestListProps = {
+  quests: QuestType[];
+}
+
+const QuestList = ({quests}: QuestListProps): JSX.Element => (
   <div className="cards-grid">
-    <QuestCard />
+    {quests.map((quest) => <QuestCard key={nanoid()} quest={quest} />)}
   </div>
 );
 
