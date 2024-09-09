@@ -8,6 +8,7 @@ import ContactsPage from '../pages/contacts-page';
 import { AppRoute } from '../../constants';
 import TemplatePage from '../pages/template-page';
 import PrivateRoute from '../private-route/private-route';
+import { QuestsMocks } from '../../mocks/quests';
 
 const App = (): JSX.Element => (
   <BrowserRouter>
@@ -16,7 +17,7 @@ const App = (): JSX.Element => (
         <Route
           index
           path={AppRoute.Main}
-          element={<MainPage />}
+          element={<MainPage quests={QuestsMocks} />}
         />
         <Route
           path={AppRoute.Contacts}

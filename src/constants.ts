@@ -2,8 +2,8 @@ import { BookingAllDatesTypes } from './types';
 
 const AppRoute = {
   Main: '/',
-  Quest: '/quest',
-  Booking: '/booking',
+  Quest: '/quest/:id',
+  Booking: '/quest/:id/booking',
   MyQuests: '/my-quests',
   Login: '/login',
   Contacts: '/contacts',
@@ -11,7 +11,7 @@ const AppRoute = {
 
 const QuestLevel = {
   any: 'Любой',
-  easy: 'Лёгкий',
+  easy: 'Простой',
   medium: 'Средний',
   hard: 'Сложный'
 } as const;
