@@ -41,3 +41,22 @@ export type BookingAllDatesTypes = {
     [key: string]: string;
   };
 };
+
+export type SlotsDateTypes = {
+  time: string;
+  isAvailable: boolean;
+};
+
+export type SlotsTypes = {
+  today: SlotsDateTypes[];
+  tomorrow: SlotsDateTypes[];
+};
+
+export type BookingTypes = {
+  id: string;
+  location: {
+    address: string;
+    coords: number[];
+  };
+  slots: SlotsTypes;
+};
