@@ -8,49 +8,53 @@ import ContactsPage from '../pages/contacts-page';
 import { AppRoute } from '../../constants';
 import TemplatePage from '../pages/template-page';
 import PrivateRoute from '../private-route/private-route';
-import { QuestsMocks } from '../../mocks/quests';
+import { useAppSelector } from '../../hooks';
+import { selectQuests } from '../../store/quests-data/selectors';
 
-const App = (): JSX.Element => (
-  <BrowserRouter>
-    <Routes>
-      <Route element={<TemplatePage />}>
+const App = (): JSX.Element => {
+  const quests = useAppSelector(selectQuests);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<TemplatePage />}>
+          <Route
+            index
+            path={AppRoute.Main}
+            element={<MainPage quests={quests} />}
+          />
+          <Route
+            path={AppRoute.Contacts}
+            element={<ContactsPage />}
+          />
+          <Route
+            path={AppRoute.Booking}
+            element={<BookingPage />}
+          />
+          <Route
+            path={AppRoute.Quest}
+            element={<QuestPage />}
+          />
+          <Route
+            path={AppRoute.MyQuests}
+            element={
+              <PrivateRoute>
+                <MyQuestsPage />
+              </PrivateRoute>
+            }
+          />
+        </Route>
         <Route
-          index
-          path={AppRoute.Main}
-          element={<MainPage quests={QuestsMocks} />}
-        />
-        <Route
-          path={AppRoute.Contacts}
-          element={<ContactsPage />}
-        />
-        <Route
-          path={AppRoute.Booking}
-          element={<BookingPage />}
-        />
-        <Route
-          path={AppRoute.Quest}
-          element={<QuestPage />}
-        />
-        <Route
-          path={AppRoute.MyQuests}
+          path={AppRoute.Login}
           element={
-            <PrivateRoute>
-              <MyQuestsPage />
+            <PrivateRoute forNonAuthOnly>
+              <LoginPage />
             </PrivateRoute>
           }
         />
-      </Route>
-      <Route
-        path={AppRoute.Login}
-        element={
-          <PrivateRoute forNonAuthOnly>
-            <LoginPage />
-          </PrivateRoute>
-        }
-      />
-    </Routes>
-  </BrowserRouter>
-);
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;
 

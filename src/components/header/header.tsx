@@ -27,7 +27,7 @@ const Header = ({authorizationStatus}: HeaderProps): JSX.Element => (
       <nav className="main-nav header__main-nav">
         <ul className="main-nav__list">
           <li className="main-nav__item">
-            <Link className="link not-disabled active" to={AppRoute.Main}>Квесты</Link>
+            <Link className='link' to={AppRoute.Main}>Квесты</Link>
           </li>
           <li className="main-nav__item">
             <Link className="link" to={AppRoute.Contacts}>Контакты</Link>

@@ -52,10 +52,22 @@ const Socials = {
   vk: 'ВКонтакте',
 } as const;
 
+const NameSpace = {
+  User: 'USER',
+  Data: 'DATA',
+  Main: 'MAIN',
+} as const;
+
+const APIRoute = {
+  Quests: '/quest',
+} as const;
+
 export {
   AppRoute,
   QuestLevel,
   QuestGenre,
   BookingAllDates,
-  Socials
+  Socials,
+  NameSpace,
+  APIRoute
 };
